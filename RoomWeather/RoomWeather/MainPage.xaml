@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             x:Name="gradient"
+             xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             x:Class="RoomWeather.MainPage"
+             StyleClass="titles">
+
+     <ContentPage.Resources>
+        <StyleSheet>
+
+            #gradient {
+                background: linear-gradient(133deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            }
+
+            .card2{
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .titles{
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .button{
+                background: rgba(0, 0, 0, 0.3);
+            }
+
+        </StyleSheet>
+    </ContentPage.Resources>
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" BackgroundColor="Transparent" BorderColor="#2705051C">
+             <Label Text="Room Weather" FontSize="Title" FontAttributes="Bold" TextColor="#FFFFFF" BackgroundColor="Transparent" />
+        </Frame>
+
+        <ScrollView Grid.Row="1">
+
+            <StackLayout>
+                <Frame StyleClass="card2" CornerRadius="10" Margin="10" Padding="5">
+
+                    <Grid RowSpacing="0" ColumnSpacing="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                            <Label Text="Temperature" StyleClass="titles" FontSize="Title" Margin="12,10,0,12" />
+                        </StackLayout>
+            
+                        <StackLayout Spacing="0" Grid.Row="1" Grid.ColumnSpan="4">
+                            <Frame Padding="0" BackgroundColor="Transparent" HeightRequest="230">
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <gauge:SfCircularGauge HeightRequest="300" >
+
+                                        <gauge:SfCircularGauge.Headers >
+                                            <gauge:Header Position="0.150, 0.54" Text="0" ForegroundColor="#FFFFFF" TextSize="13" />
+                                            <gauge:Header Position="0.853, 0.54" Text="100" ForegroundColor="#FFFFFF" TextSize="13" />
+                                            <gauge:Header x:Name ="HeaderMesaurementTemperatureFahenheit" Text="" ForegroundColor="#FFFFFF" TextSize="30" FontAttributes="Bold"/>
+                                            <gauge:Header Position="0.50, 0.56" Text="°F" ForegroundColor="#FFFFFF" TextSize="13" />
+                                        </gauge:SfCircularGauge.Headers>
+            
+                                        <gauge:SfCircularGauge.Scales>
+                
+                                            <gauge:Scale x:Name ="rimcolor1" LabelColor="#FFFFFF" StartAngle="180" SweepAngle="180" ShowLabels="False" RimThickness="50" LabelOffset="0.75" RadiusFactor="0.9" ShowTicks="False" >
+
+                                                <gauge:Scale.Pointers>
+                                                    <gauge:NeedlePointer x:Name ="needle1" Value="0" Color="#FFFFFF" KnobColor="#FFFFFF" LengthFactor="0.96" />
+                                                    <gauge:RangePointer x:Name ="range1" Value="0" RangeStart="0" Thickness="51" Offset="0.9" />
+                                                    <!--<gauge:MarkerPointer Value="70" />-->
+                                                </gauge:Scale.Pointers>
+                    
+                                            </gauge:Scale>
+                
+                                        </gauge:SfCircularGauge.Scales>
+
+                                    </gauge:SfCircularGauge>
+
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Spacing="0" Grid.Row="2" Grid.ColumnSpan="3" >
+                            <Frame Padding="2" BackgroundColor="Transparent" HeightRequest="160" >
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <gauge:SfCircularGauge HeightRequest="200" >
+
+                                        <gauge:SfCircularGauge.Headers>
+                                            <gauge:Header x:Name ="HeaderMesaurementTemperatureCelcius" Text="" ForegroundColor="#FFFFFF" TextSize="20" FontAttributes="Bold"/>
+                                            <gauge:Header Position="0.150, 0.54" Text="0" ForegroundColor="#FFFFFF" TextSize="13" />
+                                            <gauge:Header Position="0.853, 0.54" Text="40" ForegroundColor="#FFFFFF" TextSize="13" />
+                                            <gauge:Header Position="0.50, 0.57" Text="°C" ForegroundColor="#FFFFFF" TextSize="13" />
+                                        </gauge:SfCircularGauge.Headers>
+            
+                                        <gauge:SfCircularGauge.Scales>
+                
+                                            <gauge:Scale x:Name ="rimcolor2" LabelColor="#FFFFFF" StartAngle="180" SweepAngle="180" ShowLabels="False" RimThickness="40" LabelOffset="0.75" RadiusFactor="0.9" ShowTicks="False"
+                                                         StartValue="0" EndValue="40" Interval="10">
+                   
+                                                <gauge:Scale.Pointers>
+                                                    <gauge:NeedlePointer x:Name ="needle2" Value="0" Color="#FFFFFF" KnobColor="#FFFFFF" LengthFactor="0.96" />
+                                                    <gauge:RangePointer x:Name ="range2" Value="0" RangeStart="0" Thickness="41" Offset="0.9" />
+                                                </gauge:Scale.Pointers>
+                    
+                                            </gauge:Scale>
+                
+                                        </gauge:SfCircularGauge.Scales>
+
+                                    </gauge:SfCircularGauge>
+                                </Grid>
+                            </Frame>
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Padding="0">
+                            <Grid ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Slider Minimum="0" Maximum="100" Value="100" MaximumTrackColor="#000000" MinimumTrackColor="#03a9f4" ThumbColor="#FFFFFF"
+                                     x:Name="TemperatureThresholdSlider" ValueChanged="OnSliderValueChanged" Grid.Column="0" DragCompleted="onDragCompleted"/>
+                                <Label x:Name="TemperatureThresholdLabel" TextColor="#FFFFFF" Grid.Column="1" Text="100"/>
+
+                            </Grid>
+                            
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+                              <Label Text="Threshold" TextColor="#FFFFFF" Margin="12,0,0,12"/>
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+
+                <Frame StyleClass="card2" CornerRadius="10" Margin="10" Padding="5">
+
+                    <Grid RowSpacing="0" ColumnSpacing="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Label Text="Humidity" StyleClass="titles" FontSize="Large" Margin="12,10,0,12"/>
+                        </StackLayout>
+            
+                        <StackLayout Spacing="0" Grid.Row="1" Grid.ColumnSpan="4">
+                            <Frame Padding="0" BackgroundColor="Transparent" HeightRequest="240">
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <gauge:SfCircularGauge HeightRequest="300" >
+
+                                        <gauge:SfCircularGauge.Headers >
+                                            <gauge:Header Position="0.150, 0.56" Text="0" ForegroundColor="#FFFFFF" TextSize="13" />
+                                            <gauge:Header Position="0.853, 0.56" Text="100" ForegroundColor="#FFFFFF" TextSize="13" />
+                                            <gauge:Header x:Name ="HeaderMesaurementHumidity" Text="" ForegroundColor="#FFFFFF" TextSize="30" FontAttributes="Bold"/>
+                                            <gauge:Header Position="0.50, 0.56" Text="%" ForegroundColor="#FFFFFF" TextSize="13" />
+                                        </gauge:SfCircularGauge.Headers>
+            
+                                        <gauge:SfCircularGauge.Scales>
+                
+                                            <gauge:Scale x:Name ="rimcolor3" LabelColor="#FFFFFF" StartAngle="180" SweepAngle="180" ShowLabels="False" RimThickness="50" LabelOffset="0.75" RadiusFactor="0.9" ShowTicks="False" >
+
+                                                <gauge:Scale.Pointers>
+                                                    <gauge:NeedlePointer x:Name ="needle3" Value="0" Color="#FFFFFF" KnobColor="#FFFFFF" LengthFactor="0.96" />
+                                                    <gauge:RangePointer x:Name ="range3" Value="0" RangeStart="0" Thickness="51" Offset="0.9" />
+                                                    <!--<gauge:MarkerPointer Value="70" />-->
+                                                </gauge:Scale.Pointers>
+                    
+                                            </gauge:Scale>
+                
+                                        </gauge:SfCircularGauge.Scales>
+
+                                    </gauge:SfCircularGauge>
+
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Grid ColumnSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Slider Minimum="0" Maximum="100" Value="100" MaximumTrackColor="#000000" MinimumTrackColor="#03a9f4" ThumbColor="#FFFFFF"
+                                     x:Name="HumidityThresholdSlider" ValueChanged="OnSliderValueChanged" Grid.Column="0" DragCompleted="onDragCompleted"/>
+                                <Label x:Name="HumidityThresholdLabel" TextColor="#FFFFFF" Grid.Column="1" Text="100"/>
+
+                            </Grid>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="0">
+                              <Label Text="Threshold" TextColor="#FFFFFF" Margin="12,0,0,12"/>
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+
+                <Frame StyleClass="card2" CornerRadius="10" Margin="10" Padding="5">
+
+                    <Grid RowSpacing="0" ColumnSpacing="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                              <Label Text="Alerts" StyleClass="titles" FontSize="Large" Margin="12,10,0,12"/>
+                        </StackLayout>
+
+                        <StackLayout Spacing="0" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
+                            <Switch x:Name="switchLED" IsToggled="false" OnColor="#FFFFFF" Toggled="OnToggled" HorizontalOptions="End" ThumbColor="#03A9F4" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="0">
+                              <Label Text="LED Alert" TextColor="#FFFFFF" Margin="12,10,0,12"/>
+                        </StackLayout>
+
+                        <StackLayout Spacing="0" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+                            <Switch x:Name="switchAlarm" IsToggled="false" OnColor="#FFFFFF" Toggled="OnToggled" HorizontalOptions="End" ThumbColor="#03A9F4" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="0">
+                              <Label Text="Alarm Alert" TextColor="#FFFFFF" Margin="12,10,0,12"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                             <Button Text="Test" StyleClass="button" TextColor="#FFFFFF" CornerRadius="10" Margin="0,10,0,0" Clicked="PublishBtn_Clicked"/>
+                        </StackLayout>
+
+                    </Grid>
+                </Frame>
+
+            </StackLayout>
+
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <LangVersion>8.0</LangVersion>
+    <NullableContextOptions>enable</NullableContextOptions>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="20.2.0.45" />
+    <PackageReference Include="MQTTnet" Version="4.1.0.247" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="System.Text.Json" />
+    <None Remove="Syncfusion.Xamarin.SfGauge" />
+    <None Remove="MQTTnet" />
+  </ItemGroup>
+</Project>
